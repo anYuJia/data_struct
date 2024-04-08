@@ -46,7 +46,7 @@ void Increase_Size(Linear_Table *L, int size){
 int main(){
     Linear_Table L;
     init_Linear_table(&L,10);
-    Increase_Size(&L,10);
+    Increase_Size(&L,20);
     print_Linear_Table(L);
 }
 
