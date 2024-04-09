@@ -35,6 +35,25 @@ int InsertList(Node *L, int e) {
     return 1;
 }
 
+int InsertIndexList(Node *L, int num, int e) {
+    Node *LNode = (Node *) malloc(sizeof (Node));
+    if (!LNode){
+        return 0;
+    }
+    int i = 0;
+    while(L){
+        if(i == num-1){
+            LNode->next = L->next;
+            LNode->data = e;
+            L->next = LNode;
+            return 1;
+        }
+        L = L->next;
+        i++;
+    }
+    return 0;
+}
+
 //删除单链表中元素值为e的节点
 int DeleteList(Node *L, int e) {
     while (L->next) {
@@ -94,7 +113,8 @@ int main() {
     InsertList(L, 10);
     InsertList(L, 4);
     InsertList(L, 9);
-    DeleteList(L, 6);
+    InsertIndexList(L,5,999);
+    DeleteList(L, 4);
     printf("查找到元素 %d 的位置为 %d\n", 7, SearchList(L, 7));
     //DeleteList(L,5);
     printList(L);
